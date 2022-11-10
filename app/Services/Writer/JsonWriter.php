@@ -13,7 +13,8 @@ class JsonWriter implements Writer
 
     public function write(): void
     {
+        $fileName = $argv[2] ?? 'result';
         $json = json_encode($this->data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-        file_put_contents($argv[2] ?? 'result' . '.json', $json);
+        file_put_contents($fileName . '.json', $json);
     }
 }
