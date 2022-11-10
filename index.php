@@ -8,8 +8,6 @@ use App\Services\Writer\JsonWriter;
 
 require 'vendor/autoload.php';
 
-$start = microtime(true);
-$memory = memory_get_usage();
 $app = new App();
 $fileInput = $argv[1] ?? 'input.csv';
 $app->setFile($argv[1])
@@ -23,12 +21,4 @@ try {
     print_r($e->getMessage());
     die();
 }
-
-$time = microtime(true) - $start;
-echo (memory_get_usage() - $memory) . ' байт' . PHP_EOL;
-echo $time;
-
-
-
-
 
